@@ -1,3 +1,4 @@
+import Structures.maps.EjerciciosMapas;
 import controllers.MaquinasController;
 import java.util.Arrays;
 import java.util.List;
@@ -33,7 +34,26 @@ public class App {
         System.out.println("Carlos".compareTo("Ana"));
         */
        
-        runMaquina();
+        //runMaquina();
+
+        /* 
+        Maps mapas = new Maps();
+        System.out.println(mapas.construirHashMap());
+
+        System.out.println(mapas.contruirLinkedHasMap());
+
+        System.out.println(mapas.contruirTreeMap());
+
+        System.out.println(mapas.contruirTreeMapPerson());
+
+        Map<Person, Integer> treeMap = mapas.contruirTreeMapPerson();
+        System.err.println(treeMap);
+        mapas.printFilter(treeMap);
+
+        System.out.println(mapas.contruirTreeMapPersonObj2());
+        */
+
+        runEjercicios();
         /* 
         System.out.println("A".hashCode());
 
@@ -51,6 +71,39 @@ public class App {
         System.out.println(n1.hashCode() == n2.hashCode()); */
     }
 
+    private static void runEjercicios(){
+        EjerciciosMapas ejercicios = new EjerciciosMapas();
+        //Listado del 0 al 30, 50 numeros
+        List<Integer> list = Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8, 9, 10,
+                                        11, 12, 13, 14, 15, 16, 17, 18, 19, 20,
+                                        21, 22, 23, 24, 25, 26, 27, 28, 29, 30,
+                                        1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 
+                                        13, 14, 15, 16, 17, 1, 2, 3, 4, 5, 6, 7, 
+                                        8, 9, 10,18, 19, 20, 11, 12, 13, 14, 15, 
+                                        16, 17, 18, 19, 20);
+
+        List<Integer> list2 = Arrays.asList(4, 5, 1, 2, 5, 4, 3, 2, 1, 6,
+                                        7, 3, 8, 9, 6, 7, 10);
+
+        List<String[]> entradas = List.of(
+            new String[]{"Ana", "80"},
+            new String[]{"Luis", "90"},
+            new String[]{"Carlos", "70"},
+            new String[]{"Ana", "85"},
+            new String[]{"Sofia", "95"},
+            new String[]{"Luis", "88"},
+            new String[]{"Pedro", "60"},
+            new String[]{"Maria", "75"}
+        );                                
+
+        System.out.println(ejercicios.contarDuplicados(list));
+
+        System.out.println(ejercicios.primerNoDuplicado(list2));
+
+        ejercicios.rankingPuntajes(entradas);
+
+    }
+
     private static void runMaquina(){
         List<Maquina> maquinas = crearMaquinas();
         MaquinasController controller = new MaquinasController();
@@ -60,6 +113,7 @@ public class App {
         }
         System.out.println(maquinas0.size());
     }
+
 
     static List<Maquina> crearMaquinas() {
 
